@@ -17,6 +17,7 @@ const connectDb = async () => {
 
     mongoose.connection.on("error", function (err) {
       logger.error("connection to mongo failed " + err);
+      process.exit(0);
     });
 
     mongoose.connection.on("disconnected", function () {
@@ -30,6 +31,7 @@ const connectDb = async () => {
     if (err instanceof Error) {
       logger.error("connection to mongo failed " + err);
     }
+    process.exit(0);
   }
 };
 
